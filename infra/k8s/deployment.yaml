@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: privacy-logging-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: privacy-logging
+  template:
+    metadata:
+      labels:
+        app: privacy-logging
+    spec:
+      containers:
+      - name: app
+        image: your-dockerhub-username/privacy-logging:latest
+        ports:
+        - containerPort: 80
